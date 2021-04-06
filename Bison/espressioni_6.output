@@ -1,0 +1,254 @@
+Terminals unused in grammar
+
+   c
+
+
+Grammar
+
+    0 $accept: S $end
+
+    1 S: A b
+    2  | a B
+
+    3 A: B a
+    4  | %empty
+
+    5 B: d S a
+    6  | B A b
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+a (258) 2 3 5
+b (259) 1 6
+c (260)
+d (261) 5
+
+
+Nonterminals, with rules where they appear
+
+$accept (7)
+    on left: 0
+S (8)
+    on left: 1 2, on right: 0 5
+A (9)
+    on left: 3 4, on right: 1 6
+B (10)
+    on left: 5 6, on right: 2 3 6
+
+
+State 0
+
+    0 $accept: . S $end
+
+    a  shift, and go to state 1
+    d  shift, and go to state 2
+
+    b  reduce using rule 4 (A)
+
+    S  go to state 3
+    A  go to state 4
+    B  go to state 5
+
+
+State 1
+
+    2 S: a . B
+
+    d  shift, and go to state 14
+
+    B  go to state 6
+
+
+State 2
+
+    5 B: d . S a
+
+    a  shift, and go to state 15
+    d  shift, and go to state 2
+
+    b  reduce using rule 4 (A)
+
+    S  go to state 7
+    A  go to state 16
+    B  go to state 5
+
+
+State 3
+
+    0 $accept: S . $end
+
+    $end  shift, and go to state 8
+
+
+State 4
+
+    1 S: A . b
+
+    b  shift, and go to state 9
+
+
+State 5
+
+    3 A: B . a
+    6 B: B . A b
+
+    a  shift, and go to state 10
+    d  shift, and go to state 2
+
+    b  reduce using rule 4 (A)
+
+    A  go to state 11
+    B  go to state 5
+
+
+State 6
+
+    2 S: a B .
+    6 B: B . A b
+
+    d  shift, and go to state 2
+
+    $end  reduce using rule 2 (S)
+    b     reduce using rule 4 (A)
+
+    A  go to state 17
+    B  go to state 5
+
+
+State 7
+
+    5 B: d S . a
+
+    a  shift, and go to state 12
+
+
+State 8
+
+    0 $accept: S $end .
+
+    $default  accept
+
+
+State 9
+
+    1 S: A b .
+
+    $end  reduce using rule 1 (S)
+
+
+State 10
+
+    3 A: B a .
+
+    b  reduce using rule 3 (A)
+
+
+State 11
+
+    6 B: B A . b
+
+    b  shift, and go to state 13
+
+
+State 12
+
+    5 B: d S a .
+
+    a  reduce using rule 5 (B)
+    b  reduce using rule 5 (B)
+    d  reduce using rule 5 (B)
+
+
+State 13
+
+    6 B: B A b .
+
+    a  reduce using rule 6 (B)
+    b  reduce using rule 6 (B)
+    d  reduce using rule 6 (B)
+
+
+State 14
+
+    5 B: d . S a
+
+    a  shift, and go to state 15
+    d  shift, and go to state 2
+
+    b  reduce using rule 4 (A)
+
+    S  go to state 18
+    A  go to state 16
+    B  go to state 5
+
+
+State 15
+
+    2 S: a . B
+
+    d  shift, and go to state 2
+
+    B  go to state 19
+
+
+State 16
+
+    1 S: A . b
+
+    b  shift, and go to state 20
+
+
+State 17
+
+    6 B: B A . b
+
+    b  shift, and go to state 21
+
+
+State 18
+
+    5 B: d S . a
+
+    a  shift, and go to state 22
+
+
+State 19
+
+    2 S: a B .
+    6 B: B . A b
+
+    d  shift, and go to state 2
+
+    a  reduce using rule 2 (S)
+    b  reduce using rule 4 (A)
+
+    A  go to state 11
+    B  go to state 5
+
+
+State 20
+
+    1 S: A b .
+
+    a  reduce using rule 1 (S)
+
+
+State 21
+
+    6 B: B A b .
+
+    $end  reduce using rule 6 (B)
+    b     reduce using rule 6 (B)
+    d     reduce using rule 6 (B)
+
+
+State 22
+
+    5 B: d S a .
+
+    $end  reduce using rule 5 (B)
+    b     reduce using rule 5 (B)
+    d     reduce using rule 5 (B)
