@@ -16,7 +16,7 @@ This repo contains material about the following course:
 
 You can find the following material in the repo:
 
-* Bison/ - code used during Bison laboratory.
+* bison/ - code used during Bison laboratory.
 
 ## Authors
 
